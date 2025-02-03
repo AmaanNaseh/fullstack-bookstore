@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Spinner from "../components/Spinner";
 import BackButton from "../components/BackButton";
+import { backend_API } from "../config/config";
 
 const ShowBookPage = () => {
   const [book, setBook] = useState({});
@@ -14,7 +15,7 @@ const ShowBookPage = () => {
     setIsLoading(true);
 
     await axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`${backend_API}/api/books/${id}`)
       .then((res) => {
         setBook(res.data);
         setIsLoading(false);

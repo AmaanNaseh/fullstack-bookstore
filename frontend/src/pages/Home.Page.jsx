@@ -8,6 +8,7 @@ import BooksTable from "../components/home/BooksTable";
 import { MdOutlineAddBox } from "react-icons/md";
 
 import axios from "axios";
+import { backend_API } from "../config/config";
 
 const HomePage = () => {
   const [books, setBooks] = useState([]);
@@ -18,7 +19,7 @@ const HomePage = () => {
   const getBooks = async () => {
     setIsLoading(true);
     await axios
-      .get("http://localhost:5000/api/books")
+      .get(`${backend_API}/api/books`)
       .then((res) => {
         setBooks(res.data.data);
         setIsLoading(false);

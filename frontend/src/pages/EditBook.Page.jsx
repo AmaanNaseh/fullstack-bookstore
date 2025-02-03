@@ -7,6 +7,7 @@ import BackButton from "../components/BackButton";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useSnackbar } from "notistack";
+import { backend_API } from "../config/config";
 
 const EditBookPage = () => {
   const [title, setTitle] = useState("");
@@ -22,7 +23,7 @@ const EditBookPage = () => {
   const getBook = async () => {
     setIsLoading(true);
     await axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`${backend_API}/api/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setAuthor(res.data.author);
@@ -50,7 +51,7 @@ const EditBookPage = () => {
     setIsLoading(true);
 
     await axios
-      .put(`http://localhost:5000/api/books/${id}`, data)
+      .put(`${backend_API}/api/books/${id}`, data)
       .then(() => {
         setIsLoading(false);
         enqueueSnackbar("Book edited successfully !", { variant: "success" });

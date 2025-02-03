@@ -7,6 +7,7 @@ import BackButton from "../components/BackButton";
 import { useNavigate } from "react-router-dom";
 
 import { useSnackbar } from "notistack";
+import { backend_API } from "../config/config";
 
 const CreateBookPage = () => {
   const [title, setTitle] = useState("");
@@ -28,7 +29,7 @@ const CreateBookPage = () => {
     setIsLoading(true);
 
     await axios
-      .post("http://localhost:5000/api/books", data)
+      .post(`${backend_API}/api/books`, data)
       .then(() => {
         setIsLoading(false);
         enqueueSnackbar("Book created successfully !", { variant: "success" });
