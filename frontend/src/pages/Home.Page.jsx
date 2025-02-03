@@ -68,6 +68,15 @@ const HomePage = () => {
       ) : (
         <BooksCard books={books} />
       )}
+
+      <a
+        href="https://www.flaticon.com/free-icon/bookstore_5900097?term=bookshop&page=1&position=1&origin=search&related_id=5900097"
+        target="_blank"
+        rel="noreferrer"
+        className="m-20 flex items-center justify-center"
+      >
+        Favicon by Surang
+      </a>
     </div>
   );
 };
